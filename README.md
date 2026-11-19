@@ -117,7 +117,7 @@ account pair through the API, so tests are independent and can run in parallel.
 
 | Job requirement | How this repository demonstrates it | Evidence |
 | --- | --- | --- |
-| STLC / SDLC | Strategy, release plan, 30 test cases, traceability, defect workflow and release criteria | `docs/test-strategy.md`, `docs/test-plan.md`, `docs/test-cases.md`, `docs/requirements-traceability-matrix.md` |
+| STLC / SDLC | Strategy, release plan, 36 test cases, traceability, defect workflow and release criteria | `docs/test-strategy.md`, `docs/test-plan.md`, `docs/test-cases.md`, `docs/requirements-traceability-matrix.md` |
 | Test strategy, plans and cases | Risk-based strategy, entry/exit criteria, schedule, roles, risk matrix and detailed cases | `docs/` |
 | Automation frameworks | Playwright with API and Chromium projects, custom fixtures, deterministic data helpers | `playwright.config.js`, `tests/fixtures/` |
 | Functional, integration, system, E2E and regression | API, contract, database and browser suites that can run as a regression pack | `tests/api/`, `tests/e2e/`, `tests/db/` |
@@ -181,9 +181,9 @@ npx playwright install --with-deps chromium
 | Command | What runs | Typical count |
 | --- | --- | --- |
 | `npm run test:db` | `node:test` + pg-mem integrity suite | 10 tests |
-| `npm run test:api` | Playwright `api` project: transfers + OpenAPI contract | 20 tests |
+| `npm run test:api` | Playwright `api` project: accounts, health, transfers, OpenAPI contract | 30 tests |
 | `npm run test:e2e` | Playwright `e2e` project: Chromium UI flows | 5 tests |
-| `npm test` | DB -> API -> E2E, the same order as CI | 35 tests |
+| `npm test` | DB -> API -> E2E, the same order as CI | 45 tests |
 | `npm run validate:db` | Standalone SQL invariant runner with a demo transfer | 10 checks |
 | `npm run report` | Opens the last Playwright HTML report | - |
 
@@ -307,7 +307,7 @@ has a container health check against `/api/health`.
 | --- | --- |
 | [`docs/test-strategy.md`](docs/test-strategy.md) | Scope, risks, levels, environments, entry/exit and defect workflow |
 | [`docs/test-plan.md`](docs/test-plan.md) | Release 2026.1 schedule, roles, deliverables and risk matrix |
-| [`docs/test-cases.md`](docs/test-cases.md) | 30 detailed cases with priority, type, automation and traceability |
+| [`docs/test-cases.md`](docs/test-cases.md) | 36 detailed cases with priority, type, automation and traceability |
 | [`docs/requirements-traceability-matrix.md`](docs/requirements-traceability-matrix.md) | Requirement -> test -> automation mapping |
 | [`docs/api-testing.md`](docs/api-testing.md) | API strategy, isolation, idempotency and error matrix |
 | [`docs/database-validation.md`](docs/database-validation.md) | Schema, invariants, pg-mem trade-offs and production mapping |

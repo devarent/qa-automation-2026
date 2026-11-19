@@ -88,7 +88,7 @@ multiple roles in the portfolio, but the decision rights stay explicit.
 | PostgreSQL schema and seed | `db/schema.sql`, `db/seed.sql` | Applies to a fresh pg-mem database |
 | Validation queries | `db/queries/` | Ten queries; zero violations on healthy data |
 | DB integrity suite | `tests/db/integrity.test.js` | 10 passing tests |
-| API and contract suites | `tests/api/` | 20 passing tests |
+| API and contract suites | `tests/api/` | 30 passing tests |
 | E2E suite | `tests/e2e/transfer.spec.js` | 5 passing tests |
 | OpenAPI contract | `openapi/banking-api.yaml` | Valid 3.1 document; schemas compile |
 | Performance profile | `performance/k6/transfer-load.js` | Thresholds defined; manual CI job |
@@ -109,7 +109,7 @@ multiple roles in the portfolio, but the decision rights stay explicit.
 ### Exit
 
 - `npm run test:db` passes 10/10.
-- `npm run test:api` passes 20/20.
+- `npm run test:api` passes 30/30.
 - `npm run test:e2e` passes 5/5.
 - `npm run validate:db` reports 10 invariants and zero violations.
 - No open Critical or High defects; no P1 case without a result.
