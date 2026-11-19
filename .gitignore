@@ -1,0 +1,23 @@
+node_modules/
+app/node_modules/
+
+# Test output
+playwright-report/
+test-results/
+performance/k6/summary.json
+*.log
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp-*
+*.tmp

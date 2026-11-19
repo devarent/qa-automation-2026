@@ -1,0 +1,11 @@
+# The effective build context is the repository root (see app/Dockerfile).
+# This file documents app-local exclusions for tools that build from app/.
+node_modules
+npm-debug.log
+test-results
+playwright-report
+*.log
+.git
+.gitignore
+Dockerfile
+.dockerignore

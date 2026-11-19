@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Northstar Bank QA Lab - an in-memory digital banking demo built for test automation." />
+    <title>Northstar Bank - QA Lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Northstar Bank QA Lab home">
+        <span class="brand__mark" aria-hidden="true">N</span>
+        <span class="brand__text">
+          <strong>Northstar Bank</strong>
+          <span>Quality Engineering Lab</span>
+        </span>
+      </a>
+      <div class="topbar__meta">
+        <span class="env-badge">DEMO - IN-MEMORY</span>
+        <span class="status" data-testid="system-status" data-state="checking">
+          <span class="status__dot" aria-hidden="true"></span>
+          <span data-role="status-text">Checking API...</span>
+        </span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero" aria-labelledby="app-title">
+        <div class="hero__content">
+          <p class="eyebrow">Digital banking sandbox</p>
+          <h1 id="app-title" data-testid="app-title">Banking flows, proven end to end.</h1>
+          <p class="hero__lede">
+            A deliberately small accounts-and-transfers domain used to demonstrate API, UI,
+            database and performance testing in one traceable lab.
+          </p>
+          <ul class="hero__facts" aria-label="Lab facts">
+            <li><strong>3</strong> seeded accounts</li>
+            <li><strong>6</strong> core endpoints</li>
+            <li><strong>0</strong> external services</li>
+          </ul>
+        </div>
+        <div class="hero__panel" aria-hidden="true">
+          <div class="hero__panel-row">
+            <span>Transfer engine</span>
+            <span class="pill pill--live">Operational</span>
+          </div>
+          <div class="hero__flow">
+            <div class="flow-node">
+              <span>Debit</span>
+              <strong>QA-1001</strong>
+            </div>
+            <div class="flow-arrow">-></div>
+            <div class="flow-node flow-node--accent">
+              <span>Credit</span>
+              <strong>QA-1002</strong>
+            </div>
+          </div>
+          <div class="hero__panel-foot">
+            <span>Atomic ledger pair</span>
+            <span>Idempotent by design</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="accounts-title">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Portfolio</p>
+            <h2 id="accounts-title">Accounts</h2>
+          </div>
+          <p class="section__hint">Balances update after every completed transfer.</p>
+        </div>
+        <div class="accounts-grid" id="accounts-grid" data-testid="accounts-grid" aria-live="polite">
+          <div class="skeleton skeleton--card"></div>
+          <div class="skeleton skeleton--card"></div>
+          <div class="skeleton skeleton--card"></div>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <section class="panel" aria-labelledby="transfer-title">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow">Move money</p>
+              <h2 id="transfer-title">New transfer</h2>
+            </div>
+            <span class="pill">Same-currency only</span>
+          </div>
+
+          <form class="transfer-form" id="transfer-form" data-testid="transfer-form" novalidate>
+            <div class="field">
+              <label for="transfer-from">From account</label>
+              <select id="transfer-from" data-testid="transfer-from" required></select>
+            </div>
+
+            <div class="field">
+              <label for="transfer-to">To account</label>
+              <select id="transfer-to" data-testid="transfer-to" required></select>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="transfer-amount">Amount</label>
+                <div class="amount-input">
+                  <span aria-hidden="true">$</span>
+                  <input
+                    id="transfer-amount"
+                    data-testid="transfer-amount"
+                    name="amount"
+                    type="text"
+                    inputmode="decimal"
+                    autocomplete="off"
+                    placeholder="0.00"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label for="transfer-currency">Currency</label>
+                <select id="transfer-currency" data-testid="transfer-currency" required>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="GBP">GBP</option>
+                </select>
+              </div>
+            </div>
+
+            <p class="form-note">
+              Transfers are validated for funds, currency and account status before any balance
+              changes. A unique idempotency key is generated for each submission.
+            </p>
+
+            <button class="button" type="submit" data-testid="transfer-submit">
+              <span data-role="submit-label">Send transfer</span>
+              <span aria-hidden="true">-></span>
+            </button>
+
+            <div
+              class="alert alert--success"
+              data-testid="transfer-success"
+              data-transfer-id=""
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              <strong>Transfer completed</strong>
+              <p data-role="message"></p>
+              <code data-testid="transfer-reference"></code>
+            </div>
+
+            <div
+              class="alert alert--error"
+              data-testid="transfer-error"
+              data-error-code=""
+              role="alert"
+              hidden
+            >
+              <strong>Transfer failed</strong>
+              <p data-role="message"></p>
+              <code data-testid="transfer-error-code"></code>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel" aria-labelledby="activity-title">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow">Ledger view</p>
+              <h2 id="activity-title">Recent activity</h2>
+            </div>
+            <div class="field field--compact">
+              <label class="sr-only" for="history-account">Account for activity</label>
+              <select id="history-account" data-testid="history-account"></select>
+            </div>
+          </div>
+
+          <ul class="transaction-list" id="transaction-list" data-testid="transaction-list" aria-live="polite">
+            <li class="empty-state" data-testid="transaction-empty">Loading activity...</li>
+          </ul>
+
+          <p class="panel__footnote">
+            Each transfer writes one <strong>DEBIT</strong> and one <strong>CREDIT</strong> ledger
+            entry. The database suite proves both sides net to zero.
+          </p>
+        </section>
+      </div>
+
+      <section class="quality-strip" aria-label="Testing layers">
+        <div><span>API</span><strong>Playwright request context</strong></div>
+        <div><span>UI</span><strong>Chromium end-to-end</strong></div>
+        <div><span>SQL</span><strong>Ledger integrity checks</strong></div>
+        <div><span>Load</span><strong>k6 thresholds</strong></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Northstar Bank QA Lab - In-memory demo, no real money or customer data.</p>
+      <p>Built for reproducible testing - <span data-testid="footer-year">2026</span></p>
+    </footer>
+  </body>
+</html>

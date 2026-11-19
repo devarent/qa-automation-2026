@@ -1,0 +1,12 @@
+node_modules
+app/node_modules
+.git
+.github
+playwright-report
+test-results
+performance
+docs
+tests
+*.log
+.env
+.env.*
