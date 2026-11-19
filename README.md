@@ -1,4 +1,38 @@
 
+<!-- identity-block -->
+<div align="center">
+
+# qa-automation-2026
+
+<sub>Digital-banking QA lab: Playwright E2E + API tests, SQL data-integrity checks, k6 load tests, CI reporting.</sub>
+
+</div>
+
+## At a glance
+
+| Field | Detail |
+| --- | --- |
+| Repository | qa-automation-2026 |
+| Primary language | JavaScript |
+| Topics | api-testing, ci-cd, github-actions, javascript, k6, nodejs, playwright, qa, sql, test-automation |
+| License | MIT |
+| Branch | main |
+| Maintainer | [@devarent](https://github.com/devarent) |
+
+## Overview
+
+qa-automation-2026 is a hands-on repository focused on: Digital-banking QA lab: Playwright E2E + API tests, SQL data-integrity checks, k6 load tests, CI reporting.. Primary language: JavaScript. Topics: api-testing, ci-cd, github-actions, javascript, k6, nodejs, playwright, qa, sql, test-automation. The README below documents the project; use the table above for a quick overview.
+
+### Global references
+
+<div align="center">
+
+🇮🇸 Iceland &middot; 🇳🇿 New Zealand &middot; 🇨🇭 Switzerland &middot; 🇸🇮 Slovenia &middot; 🇮🇪 Ireland &middot; 🇦🇹 Austria &middot; 🇵🇹 Portugal &middot; 🇸🇬 Singapore &middot; 🇫🇮 Finland
+
+</div>
+
+---
+
 <!-- dbx-style-kit -->
 <div align="center">
 
