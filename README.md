@@ -1,3 +1,13 @@
+# Qa-Automation-2026
+<sub><span style="opacity: 0.85">Digital-banking QA lab: Playwright E2E + API tests, SQL data-integrity checks, k6 load tests, CI reporting.</span></sub>
+<div align="center" style="font-size: 0.9em">
+<img src="assets/brand-logo.svg" alt="Arya Fatthurahman" width="130px" />
+</div>
+
+[![CI](https://github.com/devarent/qa-automation-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/devarent/qa-automation-2026/actions/workflows/ci.yml)
+
+---
+
 
 <!-- identity-block -->
 <div align="center">
